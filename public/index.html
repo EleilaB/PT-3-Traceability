@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylereset.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>RYFT Groupfinder</title>
+</head>
+<body>
+    <h1>RYFT Groupfinder</h1>
+    <p id="intro">Fill out the form, and we'll find other folks to join you on your adventure!</p>
+    <div id="form-and-queue">
+        <form id="groupfinder-form">
+            <ul>
+                <li>
+                    <p class="in-form">Name</p>
+                    <input type="text" placeholder="Name" id="name-field">
+                </li>
+                <li>
+                    <p class="in-form">Group Size</p>
+                    <input type="number" placeholder="0" id="group-size">
+                </li>
+                <li>
+                    <p class="in-form">Room(s) Interested</p>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name="room1" value="Toxic Forest">
+                            <label for="room1">Toxic Forest</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="room2" value="Underground Ruins">
+                            <label for="room2">Underground Ruins</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="room3" value="The Keep">
+                            <label for="room3">The Keep</label>
+                        </li>
+                            <input type="submit" value="Submit" id="submit" class="in-form">
+                    </ul>
+                </li>
+            </ul>
+        </form>
+        <div>
+            <p>Groups waiting to join...</p>
+            <ul id="queue">
+            </ul>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+h1 {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+h1, #intro {
+    text-align: center;
+    margin: 20px;
+}
+
+#groupfinder-form {
+    display: flexbox;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 200px;
+}
+
+#groupfinder-form>*>*>*, #groupfinder-form>*>*>*>* {
+    margin: 5px;
+}
+
+#name-field, #number-in-party, date-field {
+    margin: bottom;
+}
+
+.in-form {
+    font-weight: bold
+}
