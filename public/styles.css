@@ -28,3 +28,9 @@ h1, #intro {
 .in-form {
     font-weight: bold
 }
+
+#form-and-queue {
+    display: flexbox;
+    flex-direction: row;
+    align-self: center;
+}
