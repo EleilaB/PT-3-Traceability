@@ -1,23 +1,59 @@
-const formName = document.querySelector("#name-field")[0].value;
-const formGroupSize = document.querySelector("#group-size")[0].value;
+const formName = document.querySelector("#name-field");
+const formGroupSize = document.querySelector("#group-size");
 const room1 = document.querySelector("#room1");
+const room1Label = document.querySelector("#room-1-label").textContent;
 const room2 = document.querySelector("#room2");
+const room2Label = document.querySelector("#room-2-label").textContent;
 const room3 = document.querySelector("#room3");
-const queue = document.querySelector("#queue");
-const formRooms = document.querySelectorAll(".checked");
-const groupfinderForm = document.querySelector("#groupfinder-form");
+const room3Label = document.querySelector("#room-3-label").textContent;
+const queue = document.querySelector("#queue-list");
+const submitBtn = document.querySelector("#submit");
 
-function submitHandler(e) {
-    e.preventDefault()
-    if (formName == "") {
+let formRooms = [];
+
+room1.addEventListener("change", () => {
+    if(room1.checked == true){
+        formRooms.push(room1Label)
+    }else if(room1.checked == false){
+        formRooms = [];
+        room1.checked = false;
+        room2.checked = false;
+        room3.checked = false;
+    }
+});
+
+room2.addEventListener("change", () => {
+    if(room2.checked == true){
+        formRooms.push(room2Label)
+    }else if(room2.checked == false){
+        formRooms = [];
+        room1.checked = false;
+        room2.checked = false;
+        room3.checked = false;
+    }
+});
+
+room3.addEventListener("change", () => {
+    if(room3.checked == true){
+        formRooms.push(room3Label)
+    }else if(room3.checked == false){
+        formRooms = [];
+        room1.checked = false;
+        room2.checked = false;
+        room3.checked = false;
+    }
+});
+
+function submitHandler() {
+    if (formName.value == "") {
         alert("Name must be filled out.");
         return false;
     } else
-        if (formGroupNo < 1) {
+        if (formGroupSize.value < 1) {
         alert("Group Size must be at least 1.")
         return false;
     } else
-    if (!room1.classList.contains("checked") && !room2.classList.contains("checked") && !room3.classList.contains("checked")) {
+    if (!room1.checked && !room2.checked && !room3.checked) {
         alert("Must select at least one room.")
         return false;
     } else
@@ -27,16 +63,20 @@ function submitHandler(e) {
 const addToQueue = (groupName, groupSize, groupRooms) => {
     let li = document.createElement("li");
     li.classList.add("group-name");
-    li.textContent = `${groupName} (${groupSize})`;
+    li.textContent = `- ${groupName.value} (${groupSize.value})`;
     queue.appendChild(li)
     let p = document.createElement("p");
     p.classList.add("group-rooms");
-    p.textContent = `${groupRooms}`;
+    p.textContent = `--|`
+    for(let i = 0; i < (formRooms.length); i++){ 
+        p.textContent +=` ${groupRooms[i]} |`;
+    }
     li.appendChild(p);
 }
 
-groupfinderForm.addEventListener("submit", () => {
+submitBtn.addEventListener("click", (e) => {
+    e.preventDefault;
     if (submitHandler() == true) {
-        addToQueue(formName, formGroupSize, formRooms)
+        addToQueue(formName, formGroupSize, formRooms);
     }
 });

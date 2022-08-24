@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="stylereset.css">
     <link rel="stylesheet" href="styles.css">
     <title>RYFT Groupfinder</title>
-    <script src="index.js"></script>
 </head>
 <body>
     <h1>RYFT Groupfinder</h1>
@@ -27,27 +26,28 @@
                     <p class="in-form">Room(s) Interested</p>
                     <ul>
                         <li>
-                            <input type="checkbox" name="room1" value="Toxic Forest">
-                            <label for="room1">Toxic Forest</label>
+                            <input type="checkbox" name="room1" class="checkbox" id="room1">
+                            <label for="room1" value="Toxic Forest" id="room-1-label">Toxic Forest</label>
                         </li>
                         <li>
-                            <input type="checkbox" name="room2" value="Underground Ruins">
-                            <label for="room2">Underground Ruins</label>
+                            <input type="checkbox" name="room2" class="checkbox" id="room2">
+                            <label for="room2" value="Underground Ruins" id="room-2-label">Underground Ruins</label>
                         </li>
                         <li>
-                            <input type="checkbox" name="room3" value="The Keep">
-                            <label for="room3">The Keep</label>
+                            <input type="checkbox" name="room3" class="checkbox" id="room3">
+                            <label for="room3" value="The Keep" id="room-3-label">The Keep</label>
                         </li>
-                            <input type="submit" value="Submit" id="submit" class="in-form">
+                            <input type="button" value="Submit" id="submit" class="in-form">
                     </ul>
                 </li>
             </ul>
         </form>
-        <div>
+        <div id="queue-container">
             <p>Groups waiting to join...</p>
-            <ul id="queue">
+            <ul id="queue-list">
             </ul>
         </div>
     </div>
+    <script src="index.js"></script>
 </body>
 </html>

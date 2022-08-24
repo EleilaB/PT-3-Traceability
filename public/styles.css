@@ -9,11 +9,7 @@ h1, #intro {
 }
 
 #groupfinder-form {
-    display: flexbox;
-    flex-direction: column;
-    margin-top: 100px;
-    margin-right: auto;
-    margin-left: auto;
+    display: inline;
     width: 200px;
 }
 
@@ -29,8 +25,37 @@ h1, #intro {
     font-weight: bold
 }
 
+#queue-container {
+    display: inline;
+    width: 350px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+#queue-container>p {
+    font-weight: bold;
+    text-align: center;
+}
+
 #form-and-queue {
-    display: flexbox;
+    display: flex;
     flex-direction: row;
     align-self: center;
+    width: 550px;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#queue-list>* {
+    margin-top: 5px;
+}
+
+.group-name {
+    font-weight: bold;
+}
+
+.group-rooms {
+    font-weight: normal;
 }
