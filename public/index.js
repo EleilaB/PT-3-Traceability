@@ -1,11 +1,4 @@
-// include and initialize the rollbar library with your access token
-var Rollbar = require('rollbar')
-var rollbar = new Rollbar({
-  accessToken: 'a87425010ca44ef1a23980299e68854e',
-  captureUncaught: true,
-  captureUnhandledRejections: true,
-})
-//
+const baseURL = `https://pt-3-traceability.herokuapp.com/` || `http://127.0.0.1:56580/public/index.html`;
 const formName = document.querySelector("#name-field");
 const formGroupSize = document.querySelector("#group-size");
 const room1 = document.querySelector("#room1");
@@ -55,17 +48,17 @@ room3.addEventListener("change", () => {
 function submitHandler() {
     if (formName.value == "") {
         alert("Name must be filled out.");
-        rollbar.error("nameless form");
+        axios.post(`${baseURL}/nameless`);
         return false;
     } else
         if (formGroupSize.value < 1) {
         alert("Group Size must be at least 1.");
-        rollbar.error("group size too small on form");
+        axios.post(`${baseURL}/smallgroup`);
         return false;
     } else
     if (!room1.checked && !room2.checked && !room3.checked) {
         alert("Must select at least one room.");
-        rollbar.error("no rooms selected");
+        axios.post(`${baseURL}/roomless`);
         return false;
     } else
     return true;
@@ -89,6 +82,6 @@ submitBtn.addEventListener("click", (e) => {
     e.preventDefault;
     if (submitHandler() == true) {
         addToQueue(formName, formGroupSize, formRooms);
-        rollbar.log("group added to queue")
+        axios.post(`${baseURL}/newgroup`);
     }
 });

@@ -18,6 +18,26 @@ app.use(express.static(path.join(__dirname, "../public")));
 // record a generic message and send it to Rollbar
 rollbar.log('Hello world!')
 
+app.post('/nameless', (req, res) => {
+    rollbar.error("nameless form");
+    res.send(200)
+});
+
+app.post('/smallgroup', (req, res) => {
+    rollbar.error("group size too small");
+    res.send(200)
+});
+
+app.post('/roomless', (req, res) => {
+    rollbar.error("roomless form");
+    res.send(200)
+});
+
+app.post('/newgroup', (req, res) => {
+    rollbar.error("group added");
+    res.send(200)
+});
+
 const PORT = process.env.PORT || 4005
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}.`)
