@@ -34,7 +34,7 @@ app.post('/roomless', (req, res) => {
 });
 
 app.post('/newgroup', (req, res) => {
-    rollbar.error("group added");
+    rollbar.log("group added");
     res.send(200)
 });
 
